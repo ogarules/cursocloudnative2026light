@@ -50,3 +50,6 @@ docker-compose up -d
 
 # Dar de baja servicios de un docker compose
 docker-compose down
+
+# Publicar imagen docker
+docker push containersoga/nginx-helloworld
