@@ -12,6 +12,7 @@ spec:
       labels:
         app: organization
     spec:
+      serviceAccountName: organization
       containers:
         - name: organization
           image: containersoga/organization:104.0.0
@@ -43,7 +44,7 @@ spec:
     app: organization
   ports:
     - protocol: TCP
-      port: 8082
+      port: 8083
       targetPort: 8080
       name: http
   type: LoadBalancer

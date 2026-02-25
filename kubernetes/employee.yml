@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: employee
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: employee
@@ -12,12 +12,19 @@ spec:
       labels:
         app: employee
     spec:
+      serviceAccountName: employee
       containers:
         - name: employee
           image: containersoga/employee:102.0.0
           ports:
             - containerPort: 8080
           env:
+          - name: KUBERNETES_NAMESPACE
+            value: "default" 
+          - name: SPRING_CLOUD_KUBERNETES_ENABLED
+            value: "false"
+          - name: SPRING_CLOUD_KUBERNETES_DISCOVERY_ENABLED
+            value: "false"
           - name: MONGO_USERNAME
             valueFrom:
               secretKeyRef:
@@ -43,7 +50,7 @@ spec:
     app: employee
   ports:
     - protocol: TCP
-      port: 8082
+      port: 8085
       targetPort: 8080
       name: http
   type: LoadBalancer

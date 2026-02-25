@@ -12,6 +12,7 @@ spec:
       labels:
         app: department
     spec:
+      serviceAccountName: department
       containers:
         - name: department
           image: containersoga/department:104.0.0
@@ -43,7 +44,7 @@ spec:
     app: department
   ports:
     - protocol: TCP
-      port: 8082
+      port: 8084
       targetPort: 8080
       name: http
   type: LoadBalancer

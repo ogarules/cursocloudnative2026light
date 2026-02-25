@@ -21,3 +21,4 @@ kubectl describe pod mongodb-asdfashdfa
 
 # Obtener los logs de un pod
 kubectl logs mongodb-5b6c8d6bf4-4qt2q
+
