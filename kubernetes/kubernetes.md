@@ -24,3 +24,9 @@ kubectl logs mongodb-5b6c8d6bf4-4qt2q
 
 # Editar inline un recurso
 kubectl edit deployment employee
+
+# Crear deployment (imperativamente)
+kubectl create deployment hello-busybox --image=busybox -- /bin/sh -c "while true; do echo 'Hello world'; sleep 10; done"
+
+# Dry run para generar el yaml
+kubectl create deployment hello-busybox --image=busybox --dry-run=client -o yaml -- /bin/sh -c "while true; do echo 'Hello world'; sleep 10; done"
